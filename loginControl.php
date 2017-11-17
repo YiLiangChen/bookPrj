@@ -1,4 +1,5 @@
 <?php
+session_start(); //啟用session 變數功能
 require_once('loginModel.php');
 $action =$_REQUEST['act'];
 

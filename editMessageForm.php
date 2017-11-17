@@ -1,15 +1,13 @@
 <?php
 session_start();
 require("dbconnect.php");
-//$id = (int)$_POST['id'];
-$id = (int)$_GET['id'];
 $id = (int)$_REQUEST['id'];
-$sql = "select * from guestbook where id=$id;";
+$sql = "select * from book where id=$id;";
 $result=mysqli_query($conn,$sql) or die("DB Error: Cannot retrieve message."); //執行SQL查詢
 if ($rs=mysqli_fetch_assoc($result)) {
 	$title = $rs['title'];
 	$msg=$rs['msg'];
-	$name = $rs['name'];
+	$name = $rs['author'];
 } else {
 	echo "Your id is wrong!!";
 	exit(0);
@@ -30,8 +28,8 @@ if ($rs=mysqli_fetch_assoc($result)) {
       Message Body: <input name="msg" type="text" id="msg" value="<?php echo $msg;?>" /> <br>
 
       Author: <input name="myname" type="text" id="myname" value="<?php echo $name;?>" /> <br>
-	  
-      <input type="submit" name="Submit" value="送出" />
+
+      <input type="submit" name="Submit" value="送出" />[<a href='view.php'>返回</a>]
 	</form>
   </tr>
 </table>

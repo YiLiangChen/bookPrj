@@ -1,5 +1,4 @@
 <?php
-session_start(); //啟用session 變數功能
 require("dbconnect.php"); //匯入連結資料庫之共用程式碼
 
 function checkUP($userName,$passWord) {
