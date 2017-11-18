@@ -48,16 +48,19 @@ if (	$rs=mysqli_fetch_array($results)) {
 	"<td>(", $rs['push'], ")</td></td></tr></table>";
 }
 
-echo "<hr>";
+echo "<hr><table width=\"600\" border=\"1\"><tr><td>留言訊息</td><td>留言者</td></tr>";
 
 $results=getComment($bkID);
 while (	$rs=mysqli_fetch_array($results)) {
-	if (isAdmin($_SESSION['uID'])) {
-		echo "<a href ='control.php?act=deleteComment&id=",$rs['id'],"'>deltet</a>";
-	}
-	echo $rs['msg'],$rs['userName'], "<br>";
+  echo "<tr><td>",$rs['msg'],"</td><td>",$rs['userName'];
+  if (isAdmin($_SESSION['uID'])) {
+		echo "<a href ='control.php?act=deleteComment&id=",$rs['id'],"'>[delete]</a></td></tr>";
+	} else {
+    echo "</td></tr>";
+  }
 }
 ?>
+</table>
 <hr><form method="post" action="control.php">
     <label>
       <input type="submit" name="Submit" value="新增" />
