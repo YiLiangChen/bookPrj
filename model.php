@@ -9,6 +9,14 @@ function getBookList() {
 	return mysqli_query($conn, $sql);
 }
 
+function getSelfBookList($uID) {
+	global $conn;
+	//$sql = "select * from guestbook;";
+	$sql = "select book.*, user.name from book, user where book.uID=user.id and book.uID=$uID";
+
+	return mysqli_query($conn, $sql);
+}
+
 function deleteBook($id) {
 	global $conn;
 

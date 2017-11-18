@@ -17,7 +17,7 @@ if ( ! isset($_SESSION['uID']) or $_SESSION['uID'] <= 0) {
 
 <body>
 
-<p>my guest book !! [<a href='loginForm.php'>logout</a>] [<a href='viewSelf.php'>viewMybook</a>]</p>
+<p>my guest book !! [<a href='loginForm.php'>logout</a>] [<a href='view.php'>goback</a>]</p>
 <hr />
 <table width="600" border="1">
   <tr>
@@ -30,7 +30,7 @@ if ( ! isset($_SESSION['uID']) or $_SESSION['uID'] <= 0) {
   </tr>
 <?php
 require("model.php");
-$results=getBookList();
+$results=getSelfBookList($_SESSION['uID']);
 
 while (	$rs=mysqli_fetch_array($results)) {
 
@@ -47,26 +47,6 @@ while (	$rs=mysqli_fetch_array($results)) {
 	"</td><td>(", $rs['push'], ")</td></td></tr>";
 }
 ?>
-
-  <tr><form method="post" action="control.php">
-    <td><label>
-      <input type="submit" name="Submit" value="新增" />
-      <input name="act" type="hidden" value='insert' />
-    </label></td>
-    <td><label>
-      <input name="title" type="text" id="title" />
-    </label></td>
-    <td><label>
-      <input name="msg" type="text" id="msg" />
-    </label></td>
-   <td><label>
-      <input name="author" type="text"  />
-    </label></td>
-    <td><label>
-      <input name="myname" type="hidden" id="myname" value='<?php echo $_SESSION['uID']; ?>' />
-    </label></td>
-	</form>
-  </tr>
 </table>
 </body>
 </html>

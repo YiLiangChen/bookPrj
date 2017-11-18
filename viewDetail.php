@@ -17,7 +17,7 @@ if ( ! isset($_SESSION['uID']) or $_SESSION['uID'] <= 0) {
 
 <body>
 
-<p>my guest book !! [<a href='loginForm.php'>logout</a>] [<a href='view.php'>返回</a>]</p>
+<p>my guest book !! [<a href='loginForm.php'>logout</a>] [<a href='view.php'>goback</a>]</p>
 <hr />
 <table width="600" border="1">
   <tr>
