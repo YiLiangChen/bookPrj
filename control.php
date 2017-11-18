@@ -30,6 +30,12 @@ case 'like':
 		likeBook($id);
 	}
 	break;
+case 'unlike':
+	$id = (int) $_REQUEST['id'];
+	if ($id > 0) {
+		unlikeBook($id);
+	}
+	break;
 case 'insertComment':
 	$bkID=(int)$_REQUEST['bkID'];
 	$msg=$_REQUEST['msg'];

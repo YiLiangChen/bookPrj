@@ -72,6 +72,17 @@ function likeBook($id) {
 	return mysqli_query($conn, $sql); //執行SQL
 }
 
+function unlikeBook($id) {
+	global $conn;
+
+	//對$id 做基本檢誤
+	$id = (int) $id;
+	
+	//產生SQL
+	$sql = "update book set push = push-1 where id=$id;";
+	return mysqli_query($conn, $sql); //執行SQL
+}
+
 function insertComment($bkID, $msg, $uID) {
 	global $conn;
 
