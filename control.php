@@ -14,7 +14,7 @@ $id = (int) $_REQUEST['id'];
 case 'insert':
 	$title=$_REQUEST['title'];
 	$msg=$_REQUEST['msg'];
-	$name=$_REQUEST['myname'];
+	$name=$_REQUEST['author'];/*($name=$_REQUEST['myname'];) at first*/
 	insertBook($title, $msg, $name, $_SESSION['uID']);
 	break;
 case 'update':
